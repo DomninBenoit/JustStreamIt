@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/carousel.css" />
     <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/modal.css" />
     <title>JustStreamIt</title>
   </head>
   <body>
@@ -53,9 +54,15 @@
           <button class="next-btn"></button>
         </div>
       </section>
+      <!-- La modale (fenêtre contextuelle) -->
+      <div class="modal" id="myModal">
+        <span class="close">&times;</span>
+        <div class="modal-content"></div>
+      </div>
     </main>
     <script type="module" src="scripts/services/services.js"></script>
     <script type="module" src="scripts/pages/index.js"></script>
-    <script type="module" src="scripts/carousel.js"></script>
+    <script type="module" src="scripts/utils/carousel.js"></script>
+    <script type="module" src="scripts/utils/modal.js"></script>
   </body>
 </html>

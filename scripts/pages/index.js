@@ -6,9 +6,9 @@ async function init() {
   await displayBestMovie(bestMovie);
   const nextBestMovies = await findSevenNextMoviesWithBestRating(movies);
   await displaySevenNextMovies(nextBestMovies);
-  displaySevenFantasyMovies();
-  displaySevenAnimationMovies();
-  displaySevenWesternMovies();
+  await displaySevenFantasyMovies();
+  await displaySevenAnimationMovies();
+  await displaySevenWesternMovies();
 }
 
 init();
@@ -24,9 +24,11 @@ function displayBestMovie(movie) {
 
   if (movie) {
     const movieDetailHTML = `
-          <img src=${movie.image_url} class="imgBestMovie" alt="Best Movie Image"/>
+          <a href="#" class="clickableImage" data-movie-id="${movie.id}">
+            <img src=${movie.image_url} class="imgBestMovie" alt="${movie.title}"/>
+          </a>
           <h2 class="titleBestMovie">${movie.title}</h2>
-          <button class="detailBestMovie">détail</button>
+          <button class="detailBestMovie" data-movie-id="${movie.id}">détail</button>
           <div class="descriptionBestMovie">
           <p>${movie.description}</p>
           </div>
@@ -40,60 +42,42 @@ async function findSevenNextMoviesWithBestRating(movies) {
 }
 
 function displaySevenNextMovies(movies) {
-  const sevenNextBestMovies = document.querySelector(
-    ".sevenNextBestMovies .carousel"
-  );
-
-  movies.forEach((movie) => {
-    const movieModel = `
-        <div class="carousel-item">
-          <img src=${movie.image_url} class="imgBestNextMovies" alt="Best Movie Image"/>
-        </div>`;
-    sevenNextBestMovies.innerHTML += movieModel;
-  });
+  const genres = document.querySelector(".sevenNextBestMovies .carousel");
+  movieModel(movies, genres);
 }
 
 async function displaySevenFantasyMovies() {
   const movies = await getBestMovies(
     "?genre=Fantasy&sort_by=-imdb_score&page_size=7"
   );
-  const fantasy = document.querySelector(".category1 .carousel");
-
-  movies.forEach((movie) => {
-    const movieModel = `
-        <div class="carousel-item">
-          <img src=${movie.image_url} class="imgBestNextMovies" alt="Best Movie Image"/>
-        </div>`;
-    fantasy.innerHTML += movieModel;
-  });
+  const genres = document.querySelector(".category1 .carousel");
+  movieModel(movies, genres);
 }
 
 async function displaySevenAnimationMovies() {
   const movies = await getBestMovies(
     "?genre=Animation&sort_by=-imdb_score&page_size=7"
   );
-  const animation = document.querySelector(".category2 .carousel");
-
-  movies.forEach((movie) => {
-    const movieModel = `
-        <div class="carousel-item">
-          <img src=${movie.image_url} class="imgBestNextMovies" alt="Best Movie Image"/>
-        </div>`;
-    animation.innerHTML += movieModel;
-  });
+  const genres = document.querySelector(".category2 .carousel");
+  movieModel(movies, genres);
 }
 
 async function displaySevenWesternMovies() {
   const movies = await getBestMovies(
     "?genre=Western&sort_by=-imdb_score&page_size=7"
   );
-  const western = document.querySelector(".category3 .carousel");
+  const genres = document.querySelector(".category3 .carousel");
+  movieModel(movies, genres);
+}
 
-  movies.forEach((movie) => {
+function movieModel(movies, genres) {
+  return movies.forEach((movie) => {
     const movieModel = `
         <div class="carousel-item">
-          <img src=${movie.image_url} class="imgBestNextMovies" alt="Best Movie Image"/>
+          <a href="#" class="clickableImage" data-movie-id="${movie.id}">
+            <img src=${movie.image_url} class="imgBestNextMovies" alt="${movie.title}"/>
+          </a>
         </div>`;
-    western.innerHTML += movieModel;
+    genres.innerHTML += movieModel;
   });
 }

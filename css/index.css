@@ -1,6 +1,7 @@
 body {
   width: 70vw;
   background-color: black;
+  color: white;
 }
 
 header {
@@ -23,6 +24,7 @@ ul {
 
 li {
   margin-left: 10px;
+  color: black;
 }
 
 .logo {

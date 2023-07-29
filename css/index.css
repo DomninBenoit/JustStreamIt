@@ -1,0 +1,72 @@
+body {
+  width: 70vw;
+  background-color: black;
+}
+
+header {
+  position: relative;
+  background-color: white;
+  opacity: 0.8;
+}
+
+nav {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+ul {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+}
+
+li {
+  margin-left: 10px;
+}
+
+.logo {
+  height: 50px;
+  margin: 5px 0 0 5px;
+}
+
+.bestMovie {
+  position: relative;
+  width: 100%;
+}
+
+.imgBestMovie {
+  position: relative;
+  width: 100%;
+  height: 40vh;
+}
+
+.titleBestMovie {
+  position: absolute;
+  top: 50px;
+  left: 20px;
+  color: white;
+}
+
+.detailBestMovie {
+  position: absolute;
+  top: 120px;
+  left: 20px;
+}
+
+.descriptionBestMovie {
+  position: absolute;
+  top: 150px;
+  left: 20px;
+  width: 85%;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.descriptionBestMovie p {
+  position: relative;
+  color: white;
+  font-size: 20px;
+}

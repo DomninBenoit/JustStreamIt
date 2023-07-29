@@ -1,0 +1,51 @@
+.carousel-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+}
+
+.carousel-item {
+  flex: 0 0 25%;
+  height: 180px;
+  border: solid 1px black;
+  background-color: #f2f2f2;
+}
+
+.carousel-item .imgBestNextMovies {
+  width: 100%;
+  height: 100%;
+}
+
+.prev-btn,
+.next-btn {
+  margin-top: 10px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.prev-btn {
+  left: 10px;
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  background-image: url("../assets/chevron-left-solid.svg");
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.next-btn {
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  background-image: url("../assets/chevron-right-solid.svg");
+  background-repeat: no-repeat;
+  cursor: pointer;
+}

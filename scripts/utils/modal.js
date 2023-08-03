@@ -28,7 +28,8 @@ carouselContainers.forEach((carouselContainer) => {
       modalContent.innerHTML = generateModalContent(detailMovie);
 
       // Afficher la modale
-      modal.style.display = "block";
+      modal.classList.remove("display_none")
+      modal.classList.add("display_block");
     }
   });
 });
@@ -55,7 +56,8 @@ bestContainers.forEach((bestContainer) => {
       modalContent.innerHTML = generateModalContent(detailMovie);
 
       // Afficher la modale
-      modal.style.display = "block";
+      modal.classList.remove("display_none")
+      modal.classList.add("display_block");
     } else if (event.target.classList.contains("detailBestMovie")) {
       event.preventDefault(); // Empêcher la navigation par défaut
 
@@ -70,7 +72,8 @@ bestContainers.forEach((bestContainer) => {
       modalContent.innerHTML = generateModalContent(detailMovie);
 
       // Afficher la modale
-      modal.style.display = "block";
+      modal.classList.remove("display_none")
+      modal.classList.add("display_block");
     }
   });
 });
@@ -78,7 +81,8 @@ bestContainers.forEach((bestContainer) => {
 // Ajouter un gestionnaire d'événement de clic sur le bouton de fermeture de la modale
 closeButton.addEventListener("click", function () {
   // Masquer la modale en modifiant son style display
-  modal.style.display = "none";
+  modal.classList.remove("display_block")
+  modal.classList.add("display_none");
 });
 
 function generateModalContent(detailMovie) {
